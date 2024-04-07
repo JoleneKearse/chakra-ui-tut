@@ -10,9 +10,12 @@ import {
   Select,
   Checkbox,
   Button,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 const Details = () => {
+  const colSpan = useBreakpointValue({ base: 2, md: 1 });
+
   return (
     <VStack w="full" h="full" p={10} spacing={10} alignItems="flex-start">
       <VStack spacing={3} alignItems="flex-start">
@@ -21,31 +24,31 @@ const Details = () => {
       </VStack>
 
       <SimpleGrid columns={2} columnGap={3} rowGap={6} w="full">
-        <GridItem colSpan={1}>
+        <GridItem colSpan={colSpan}>
           <FormControl>
             <FormLabel>First name</FormLabel>
             <Input placeholder="Elvira" />
           </FormControl>
         </GridItem>
-        <GridItem colSpan={1}>
+        <GridItem colSpan={colSpan}>
           <FormControl>
             <FormLabel>Last name</FormLabel>
             <Input placeholder="Kearse" />
           </FormControl>
         </GridItem>
-        <GridItem colSpan={2}>
+        <GridItem colSpan={colSpan}>
           <FormControl>
             <FormLabel>Address</FormLabel>
             <Input placeholder="1990 Vidal Street S." />
           </FormControl>
         </GridItem>
-        <GridItem colSpan={1}>
+        <GridItem colSpan={colSpan}>
           <FormControl>
             <FormLabel>City</FormLabel>
             <Input placeholder="Sarnia" />
           </FormControl>
         </GridItem>
-        <GridItem colSpan={1}>
+        <GridItem colSpan={colSpan}>
           <FormControl>
             <FormLabel>Country</FormLabel>
             <Select>
@@ -59,11 +62,13 @@ const Details = () => {
             </Select>
           </FormControl>
         </GridItem>
-        <GridItem colSpan={2}>
+        <GridItem colSpan={colSpan}>
           <Checkbox defaultChecked>Ship to billing address.</Checkbox>
         </GridItem>
         <GridItem colSpan={2}>
-          <Button size="lg" w="full">Place Order</Button>
+          <Button size="lg" w="full">
+            Place Order
+          </Button>
         </GridItem>
       </SimpleGrid>
     </VStack>
